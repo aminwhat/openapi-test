@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /users:
+    get:
+      operationId: usersGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/User"
+                type: array
+          description: A list of users
+      summary: Get all users
+      x-eov-operation-handler: controllers/DefaultController
+    post:
+      operationId: usersPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "201":
+          description: User created
+      summary: Create a user
+      x-eov-operation-handler: controllers/DefaultController
+  /users/{id}:
+    get:
+      operationId: usersIdGET
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+          description: User object
+      summary: Get user by ID
+      x-eov-operation-handler: controllers/DefaultController
+components:
+  schemas:
+    User:
+      example:
+        name: name
+        id: id
+        email: email
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+      type: object
