@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import Post from '../model/Post';
 import User from '../model/User';
 
 /**
@@ -33,6 +34,82 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the postsGet operation.
+     * @callback module:api/DefaultApi~postsGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Post>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all posts
+     * @param {module:api/DefaultApi~postsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Post>}
+     */
+    postsGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [Post];
+      return this.apiClient.callApi(
+        '/posts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postsPost operation.
+     * @callback module:api/DefaultApi~postsPostCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a post
+     * @param {module:model/Post} post 
+     * @param {module:api/DefaultApi~postsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postsPost(post, callback) {
+      let postBody = post;
+      // verify the required parameter 'post' is set
+      if (post === undefined || post === null) {
+        throw new Error("Missing the required parameter 'post' when calling postsPost");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/posts', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the usersGet operation.

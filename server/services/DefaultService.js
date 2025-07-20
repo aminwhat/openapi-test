@@ -2,6 +2,44 @@
 const Service = require('./Service');
 
 /**
+* Get all posts
+*
+* returns List
+* */
+const postsGET = () => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
+/**
+* Create a post
+*
+* post Post 
+* no response value expected for this operation
+* */
+const postsPOST = ({ post }) => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+        post,
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
+/**
 * Get all users
 *
 * returns List
@@ -61,6 +99,8 @@ const usersPOST = ({ user }) => new Promise(
 );
 
 module.exports = {
+  postsGET,
+  postsPOST,
   usersGET,
   usersIdGET,
   usersPOST,

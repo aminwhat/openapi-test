@@ -13,6 +13,7 @@
 
 
 import ApiClient from './ApiClient';
+import Post from './model/Post';
 import User from './model/User';
 import DefaultApi from './api/DefaultApi';
 
@@ -54,6 +55,12 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The Post model constructor.
+     * @property {module:model/Post}
+     */
+    Post,
 
     /**
      * The User model constructor.

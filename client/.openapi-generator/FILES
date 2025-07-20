@@ -1,9 +1,9 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/DefaultApi.md
+docs/Post.md
 docs/User.md
 git_push.sh
 mocha.opts
@@ -11,6 +11,6 @@ package.json
 src/ApiClient.js
 src/api/DefaultApi.js
 src/index.js
+src/model/Post.js
 src/model/User.js
-test/api/DefaultApi.spec.js
-test/model/User.spec.js
+test/model/Post.spec.js

@@ -110,7 +110,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.usersGet(callback);
+api.postsGet(callback);
 
 ```
 
@@ -120,6 +120,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ExampleApi.DefaultApi* | [**postsGet**](docs/DefaultApi.md#postsGet) | **GET** /posts | Get all posts
+*ExampleApi.DefaultApi* | [**postsPost**](docs/DefaultApi.md#postsPost) | **POST** /posts | Create a post
 *ExampleApi.DefaultApi* | [**usersGet**](docs/DefaultApi.md#usersGet) | **GET** /users | Get all users
 *ExampleApi.DefaultApi* | [**usersIdGet**](docs/DefaultApi.md#usersIdGet) | **GET** /users/{id} | Get user by ID
 *ExampleApi.DefaultApi* | [**usersPost**](docs/DefaultApi.md#usersPost) | **POST** /users | Create a user
@@ -127,6 +129,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ExampleApi.Post](docs/Post.md)
  - [ExampleApi.User](docs/User.md)
 
 

@@ -52,6 +52,33 @@ paths:
           description: User object
       summary: Get user by ID
       x-eov-operation-handler: controllers/DefaultController
+  /posts:
+    get:
+      operationId: postsGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Post"
+                type: array
+          description: A list of posts
+      summary: Get all posts
+      x-eov-operation-handler: controllers/DefaultController
+    post:
+      operationId: postsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
+        required: true
+      responses:
+        "201":
+          description: Post created
+      summary: Create a post
+      x-eov-operation-handler: controllers/DefaultController
 components:
   schemas:
     User:
@@ -65,5 +92,18 @@ components:
         name:
           type: string
         email:
+          type: string
+      type: object
+    Post:
+      example:
+        id: id
+        title: title
+        content: content
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
           type: string
       type: object

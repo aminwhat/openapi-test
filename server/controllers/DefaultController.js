@@ -8,6 +8,14 @@
 
 const Controller = require('./Controller');
 const service = require('../services/DefaultService');
+const postsGET = async (request, response) => {
+  await Controller.handleRequest(request, response, service.postsGET);
+};
+
+const postsPOST = async (request, response) => {
+  await Controller.handleRequest(request, response, service.postsPOST);
+};
+
 const usersGET = async (request, response) => {
   await Controller.handleRequest(request, response, service.usersGET);
 };
@@ -22,6 +30,8 @@ const usersPOST = async (request, response) => {
 
 
 module.exports = {
+  postsGET,
+  postsPOST,
   usersGET,
   usersIdGET,
   usersPOST,
